@@ -1,11 +1,14 @@
-<script lang="ts">
+<script>
+	import { enhance } from "$app/forms";
+	export let form;
+
 </script>
 
 <main>
 	<h1>Login</h1>
-	<form action="" class="auth-form">
+	<form method="post" use:enhance class="auth-form">
         <label for=""> Employee ID </label>
-		<input type="text" name="employee id" />
+		<input name="employee_id" value={form?.employee_id ??''} />
 		<label for=""> Password </label>
 		<input type="password" name="password" />
 		<button class="btn btn-primary">Login</button>
