@@ -1,4 +1,5 @@
 // src/routes/+layout.js
+// creating a universal loader that can execute both on the server and client side
 import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL } from '$env/static/public'
 import { createSupabaseLoadClient } from '@supabase/auth-helpers-sveltekit'
 
@@ -10,7 +11,7 @@ export const load = async ({ fetch, data, depends }) => {
     supabaseKey: PUBLIC_SUPABASE_ANON_KEY,
     event: { fetch },
     serverSession: data.session,
-  })
+  });
 
   const {
     data: { session },

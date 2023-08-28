@@ -2,17 +2,16 @@
 // for information about these interfaces
 
 import { Session, SupabaseClient } from "@supabase/supabase-js"
-import { Database } from './DatabaseDefinitions'
+
 declare global {
 
 	namespace App {
 		interface Locals {
-			supabase: SupabaseClient<Database>
+			supabase: SupabaseClient;
 			getSession(): Promise<Session | null>
 		}
-		interface PageData {
-			session: Session | null
-		}
+		//interface PageData {}
+		
 		// interface Platform {}
 		// interface Error {}
 	}
