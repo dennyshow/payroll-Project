@@ -14,6 +14,13 @@ declare global {
 		
 		// interface Platform {}
 		// interface Error {}
+		
+		interface Employee {
+			id: number;
+			name: string;
+			email: string;
+			// Add more properties as needed
+		  }
 	}
 }
 
