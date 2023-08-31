@@ -5,6 +5,7 @@ export const employees = writable([]);
 
 export const name = writable('Svelte');
 
+
 // calling the loading fn to open once layout loads
 export const loadEmployees = async () => {
     const {data, error} = await supabase.from('profile').select();
@@ -36,6 +37,18 @@ export const addEmployee = async (
         password}])
         .select();
 
+        if (first_name.length < 3 || last_name.length < 3 
+            || role.length < 3 || email.length < 3){
+                alert("Please fill all fields");
+
+            }
+        
+        if (password.length < 10 && 
+            !password.toUpperCase && 
+            !password.toLowerCase) {
+                alert ("Password must be at least ten characters long and contain both upper case letters and lower case letters");   
+            }
+
         if(error) {
             return console.error(error);
 
@@ -46,18 +59,7 @@ export const addEmployee = async (
             return newEmployee;
         });
 
-        //employees.update((current_employee) => [...current_employee, data[0]]);
+        employees.update((current_employee) => [...current_employee, data[0]]);
            
 };
 
-export const deleteEmployee = async (id) => {
-    const {error} = await supabase
-        .from('profile')
-        .delete()
-        .match({ 'employee_id': id })
-    if(error) {
-        return console.error("Error deleting", id);
-    }
-    employees.update((employees) => employees.filter((employee) => employee.id !== id));
-    //employees.update((employees) => employees.filter((employee) => employee.id !== employee_id));
-};

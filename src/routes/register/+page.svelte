@@ -23,10 +23,14 @@
             employeeData.password
         );
 
-        if (employeeData.employee_id && employeeData.first_name)
-        
-        // Display success message to the user (you can use an alert or display it in the UI)
+        if (employeeData.employee_id && employeeData.first_name &&
+        employeeData.first_name && employeeData.last_name && 
+        employeeData.role && employeeData.email && employeeData.password){
+                  // Display success message to the user (you can use an alert or display it in the UI)
         alert("Employee added successfully!");
+        goto('/profile');
+
+        }
         
         // Reseting the form fields
         employeeData = {
@@ -37,7 +41,6 @@
             email: '',
             password: ''
         };
-        goto('/');
 
 
     }

@@ -23,6 +23,11 @@
 		
 	});
 
+	async function logOut()  {
+		await supabase.auth.signOut();
+
+	}
+
 
 </script>
 
@@ -48,17 +53,30 @@
 		<li class="nav-item">
 		  <a class="nav-link" href="/profile">Profile</a>
 		</li>
-		
+		<li class="nav-item">
+			<a class="nav-link" href="/logtime">Log Time</a>
+		  </li>
+
 		{/if}
 		<li class="nav-item">
 		  <a class="nav-link" href="/about">About Us</a>
 		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="https://forms.office.com/Pages/ResponsePage.aspx?id=yxdjdkjpX06M7Nq8ji_V2n22HJdBJIhPmJ6O9a94XT9URFhKUVNYM1RGQzJLRFRLN0hINldLWEpSRi4u">Feedback</a>
+		  </li>
+		  {#if data.session}
+		  <li class="nav-item">
+			<a on:click="{logOut}" class="nav-link" href="/">Log Out</a>
+		  </li>
+		  {/if}
 	  </ul>
 	  <div class="tab-content" id="myTabContent">
 		<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"></div>
 		<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"></div>
 		<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"></div>
 	  </div>
+	  
+	  
 	
 </nav>
 
@@ -70,5 +88,41 @@
 	</slot>
 	
 </div>
+<hr>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+	<ol class="carousel-indicators">
+	  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+	  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+	  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+	</ol>
+	<div class="carousel-inner">
+	  <div class="carousel-item active">
+		<img class="d-block w-100" src="../src/static/img/payrollimg1.png" alt="First slide">
+	  </div>
+	  <div class="carousel-item">
+		<img class="d-block w-100" src="../src/static/img/payrollimg2.jpg" alt="Second slide">
+	  </div>
+	  <div class="carousel-item">
+		<img class="d-block w-100" src="../src/static/img/payrollimg4.jpg" alt="Third slide">
+	  </div>
+	</div>
+	<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+	  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	  <span class="sr-only">Previous</span>
+	</a>
+	<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+	  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+	  <span class="sr-only">Next</span>
+	</a>
+  </div>
+
+<footer class=" footer bg-dark text-center">
+	<!-- Copyright -->
+	<div class="text-center p-3" style="background-color: rgb(33, 33, 245);">
+	  © 2023 Copyright:
+	  <a class="text-light" href="/">MANBrothers.com</a>
+	</div>
+	<!-- Copyright -->
+  </footer>
 
 
